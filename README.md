@@ -77,6 +77,8 @@ litestream-skills/
 ├── .codex/
 │   └── skills/
 │       └── litestream/        # Codex skill (copy)
+├── scripts/
+│   └── sync-to-codex.sh       # Sync script for Codex
 ├── skills/
 │   └── litestream/
 │       ├── SKILL.md           # Main skill entry point
@@ -87,6 +89,7 @@ litestream-skills/
 │       ├── operations/        # Monitoring and recovery
 │       ├── integrations/      # MCP server docs
 │       └── scripts/           # Helper scripts
+├── LICENSE
 └── README.md
 ```
 
