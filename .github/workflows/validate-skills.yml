@@ -1,0 +1,29 @@
+name: Validate Skills Sync
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run sync script
+        run: ./scripts/sync-skills.sh
+
+      - name: Check for differences
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Skills directories are out of sync!"
+            echo ""
+            echo "The following files differ between skills/litestream and the synced directories:"
+            git diff --name-only
+            echo ""
+            echo "Run './scripts/sync-skills.sh' locally and commit the changes."
+            exit 1
+          fi
+          echo "All skill directories are in sync."
