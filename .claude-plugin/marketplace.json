@@ -1,0 +1,14 @@
+{
+  "name": "litestream-skills",
+  "owner": "benbjohnson",
+  "plugins": [
+    {
+      "name": "litestream",
+      "description": "SQLite disaster recovery and streaming replication to cloud storage",
+      "source": {
+        "source": "local",
+        "path": "./skills/litestream"
+      }
+    }
+  ]
+}
