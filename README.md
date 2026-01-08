@@ -17,6 +17,31 @@ AI agent skills for [Litestream](https://github.com/benbjohnson/litestream) v0.5
 $skill-installer install https://github.com/benbjohnson/litestream-skills/tree/main/skills/litestream
 ```
 
+### Gemini CLI
+
+1. Enable experimental skills in `~/.gemini/settings.json`:
+
+```json
+{
+  "experimental": {
+    "skills": true
+  }
+}
+```
+
+2. Copy skills to your Gemini skills directory:
+
+```bash
+# User-level (available across all projects)
+cp -r skills/litestream ~/.gemini/skills/
+
+# Or project-level
+mkdir -p .gemini/skills
+cp -r skills/litestream .gemini/skills/
+```
+
+3. Restart Gemini CLI and verify with `/skills list`
+
 ## What's Included
 
 ### Concepts
@@ -77,8 +102,11 @@ litestream-skills/
 ├── .codex/
 │   └── skills/
 │       └── litestream/        # Codex skill (copy)
+├── .gemini/
+│   └── skills/
+│       └── litestream/        # Gemini CLI skill (copy)
 ├── scripts/
-│   └── sync-to-codex.sh       # Sync script for Codex
+│   └── sync-skills.sh         # Sync script for Codex & Gemini
 ├── skills/
 │   └── litestream/
 │       ├── SKILL.md           # Main skill entry point
@@ -95,10 +123,10 @@ litestream-skills/
 
 ## Keeping Skills Updated
 
-When updating skills, run the sync script to keep Codex in sync:
+When updating skills, run the sync script to keep Codex and Gemini in sync:
 
 ```bash
-./scripts/sync-to-codex.sh
+./scripts/sync-skills.sh
 ```
 
 ## Links
@@ -107,6 +135,7 @@ When updating skills, run the sync script to keep Codex in sync:
 - [Litestream GitHub](https://github.com/benbjohnson/litestream)
 - [Claude Code Plugin Docs](https://code.claude.com/docs/en/plugin-marketplaces)
 - [Codex Skills Docs](https://developers.openai.com/codex/skills/)
+- [Gemini CLI Skills Docs](https://geminicli.com/docs/cli/skills/)
 
 ## License
 
